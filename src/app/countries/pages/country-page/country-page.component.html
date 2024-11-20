@@ -1,0 +1,31 @@
+<ng-template #loading>
+  <div class="alert alert-info text-center">Espere por favor...</div>
+</ng-template>
+
+<div *ngIf="countryPage; else loading">
+  <h1>{{ countryPage.translations["spa"].common }}</h1>
+  <div class="row">
+    <div class="col-4">
+      <img
+        [src]="countryPage?.flags?.svg"
+        [alt]="countryPage?.name?.common"
+        class="img-thumbnail"
+      />
+    </div>
+    <div class="col-8">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Nombre: </strong>
+          {{ countryPage?.name?.common }}
+        </li>
+        <li class="list-group-item">
+          <strong>Poblacion: </strong> {{ countryPage?.population | number }}
+        </li>
+        <li class="list-group-item">
+          <strong>Código: </strong> {{ countryPage?.cca3 }}
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</div>
